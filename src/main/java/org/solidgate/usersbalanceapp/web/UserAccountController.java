@@ -26,7 +26,7 @@ public class UserAccountController {
         int before = LocalDateTime.now().getSecond();
         userAccountService.updateUsersBalances(usersBalances);
         int after = LocalDateTime.now().getSecond();
-        log.info("TIME TAKEN: {} SECONDS", before - after);
+        log.info("TIME TAKEN: {} SECONDS", after - before);
         return ResponseEntity.ok().build();
     }
 }

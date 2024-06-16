@@ -29,7 +29,7 @@ public class UserAccountControllerTest {
     public void setUsersBalance() throws Exception {
         Map<Integer, Integer> usersBalances = IntStream.rangeClosed(1, 1_000_000)
                 .boxed()
-                .collect(Collectors.toMap(i -> i, i -> i * 10));
+                .collect(Collectors.toMap(i -> i, i -> i * 20));
 
         String jsonPayload = objectMapper.writeValueAsString(usersBalances);
 

@@ -22,7 +22,7 @@ public class UserAccountService {
 
     @Transactional
     public void updateUsersBalances(Map<Integer, Integer> usersBalances) {
-        int batchSize = 1000;
+        int batchSize = 100_000;
         ExecutorService executorService = Executors.newFixedThreadPool(10);
 
         for (int i = 0; i < usersBalances.size(); i += batchSize) {
@@ -55,17 +55,4 @@ public class UserAccountService {
                                 .build())
                 .toList());
     }
-
-//    private UserAccountRepository userAccountRepository;
-//
-//    @Transactional
-//    public void updateUsersBalances(Map<Integer, Integer> usersBalances) {
-//        userAccountRepository.saveAll(usersBalances.entrySet().stream()
-//                .map(entry ->
-//                        UserAccount.builder()
-//                                .id(entry.getKey())
-//                                .balance(entry.getValue())
-//                                .build())
-//                .toList());
-//    }
 }

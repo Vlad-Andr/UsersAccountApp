@@ -10,10 +10,10 @@
 # Possible improvements
 
  Common:
- - Try to find the most efficient database configuration like optimal batch processing and adjusting amount of max connections in connection pool for handle access without db overloading
- - Add caching for reducing amount of repeated query requests to db
- - Depends on future requirements choose either vertical (if probably one request will contain >100k payload) or horizontal (if it is will be frequent requests) scaling
+ - Try to find the most efficient database configuration, such as optimizing batch processing and adjusting the maximum number of connections in the connection pool to handle access without overloading the database.
+ - Add caching to reduce the number of repeated query requests to the database.
+ - Depending on future requirements, choose either vertical scaling (if a single request might contain >100k payload) or horizontal scaling (if there will be frequent requests).
 
  Refactor:
- - Migrate to reactive approach for better concurrent processing optimization
- - Add in-memory cache like Redis for reduce frequent access to db. Possible scenario: 1) Save or update new data to Redis and when it is request to read firstly check Redis cache and if nothing were found check db. 2) Adjust scheduler that will check and update db`s data with Redis info with some delay. 
+ - Migrate to a reactive approach for better optimization of concurrent processing.
+ - Add an in-memory cache like Redis to reduce frequent access to the database. Possible scenarios: 1) Save or update new data to Redis. When a read request is made, first check the Redis cache. If the data is not found in Redis, then check the database. 2) Implement a scheduler that with some delay checks and updates the database with information from Redis.
